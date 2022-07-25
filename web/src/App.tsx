@@ -1,7 +1,9 @@
+import { Chat } from './pages/Chat'
+
 function App() {
   return (
-    <div className="bg-zinc-300 min-h-screen w-full flex justify-center items-center">
-      <strong>Hello World</strong>
+    <div className="bg-neutral-600 min-h-screen w-full">
+      <Chat />
     </div>
   )
 }
