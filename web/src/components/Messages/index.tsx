@@ -16,8 +16,8 @@ export const Messages = ({ messages, user }: MessagesProps) => {
   }, [messages])
 
   return (
-    <main className="h-[calc(100vh-6.5rem)] relative">
-      <div className="overflow-x-scroll w-full max-h-[calc(100vh-6.5rem)] absolute bottom-0">
+    <main className="h-[calc(100vh-200px)] relative">
+      <div className="overflow-x-scroll w-full max-h-[calc(100vh-200px)] absolute bottom-0">
         <ul className="px-3 pt-4 flex flex-col gap-4 min-h-[2.5rem] w-full">
           {messages.map((message, key) => {
             return (
