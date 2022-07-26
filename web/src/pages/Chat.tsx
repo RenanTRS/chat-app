@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { Header } from '../components/Header'
 import { InputArea } from '../components/InputArea'
 import { Messages } from '../components/Messages'
@@ -15,16 +15,11 @@ export const Chat = () => {
     setMessages([...messages, { user, message }])
   }
 
-  const firstView = useRef<null | HTMLDivElement>(null)
-  useEffect(() => {
-    firstView.current?.scrollIntoView() //First view
-  }, [])
-
   return (
-    <div className="min-h-screen relative" ref={firstView}>
+    <>
       <Header user={'Another User'} />
       <Messages messages={messages} user={user} />
       <InputArea sendMessage={sendMessage} user={user} />
-    </div>
+    </>
   )
 }
