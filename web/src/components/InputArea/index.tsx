@@ -1,24 +1,31 @@
 import { FormEvent, useState } from 'react'
 import { PaperPlaneRight } from 'phosphor-react'
 
-interface InputAreaProps {
-  sendMessage: (value: string) => void
+interface Message {
+  user: string
+  message: string
 }
 
-export const InputArea = ({ sendMessage }: InputAreaProps) => {
-  const [bodyTextMessage, setBodyTextMessage] = useState<string>('')
+interface InputAreaProps {
+  sendMessage: ({ user, message }: Message) => void
+  user: string
+}
+
+export const InputArea = ({ sendMessage, user }: InputAreaProps) => {
+  const [message, setMessage] = useState<string>('')
   const [isEmpty, setIsEmpty] = useState<boolean>(true)
 
   const handlerSubmit = (event: FormEvent) => {
     event.preventDefault()
-    sendMessage(bodyTextMessage)
-    setBodyTextMessage('') //clean textarea
+    sendMessage({ user, message })
+
+    setMessage('') //clean textarea
     setIsEmpty(true) //disabled true
   }
 
   const typingText = (value: string) => {
     value.trim() !== '' ? setIsEmpty(false) : setIsEmpty(true)
-    setBodyTextMessage(value)
+    setMessage(value)
   }
 
   return (
@@ -27,10 +34,10 @@ export const InputArea = ({ sendMessage }: InputAreaProps) => {
       className="bg-zinc-200 flex justify-between gap-1 px-3 absolute bottom-0 h-14 w-full"
     >
       <textarea
-        value={bodyTextMessage}
+        value={message}
         onChange={(event) => typingText(event.target.value)}
         placeholder="Mensagem"
-        className="bg-transparent flex-1 text-xl px-2 pt-3 resize-y focus:outline-none focus:caret-green-700"
+        className="bg-transparent flex-1 text-xl px-2 pt-3 resize-none focus:outline-none focus:caret-green-700"
       />
       <button
         type="submit"
