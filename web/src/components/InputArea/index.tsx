@@ -31,7 +31,7 @@ export const InputArea = ({ sendMessage, user }: InputAreaProps) => {
   return (
     <form
       onSubmit={handlerSubmit}
-      className="bg-zinc-200 flex justify-between gap-1 px-3 absolute bottom-0 h-14 w-full"
+      className="bg-zinc-200 flex justify-between gap-1 px-3 h-14 w-full"
     >
       <textarea
         value={message}
