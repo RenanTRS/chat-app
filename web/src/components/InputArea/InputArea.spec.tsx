@@ -4,7 +4,7 @@ import { InputArea } from '.'
 const sendMessageSpy = jest.fn()
 
 const MockInputArea = () => {
-  return <InputArea sendMessage={sendMessageSpy} />
+  return <InputArea sendMessage={sendMessageSpy} user={'someone'} />
 }
 
 describe('InputArea component', () => {
