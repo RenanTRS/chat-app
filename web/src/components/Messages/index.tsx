@@ -17,8 +17,8 @@ export const Messages = ({ messages, user }: MessagesProps) => {
 
   return (
     <>
-      <main className="h-[calc(100vh-7rem)] flex">
-        <div className="overflow-y-scroll w-full max-h-full self-end">
+      <main className="overflow-y-scroll h-full flex-grow">
+        <div className=" w-full h-full">
           <ul className="px-3 pt-4 flex flex-col gap-4 min-h-[2.5rem] w-full">
             {messages.map((message, key) => {
               return (

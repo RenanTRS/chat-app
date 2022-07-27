@@ -16,10 +16,10 @@ export const Chat = () => {
   }
 
   return (
-    <>
+    <div className='flex flex-col h-screen'>
       <Header user={'Another User'} />
       <Messages messages={messages} user={user} />
       <InputArea sendMessage={sendMessage} user={user} />
-    </>
+    </div>
   )
 }
