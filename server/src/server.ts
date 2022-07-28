@@ -1,7 +1,4 @@
-import express from 'express'
+import { serverHttp } from './http'
+import './webSocket'
 
-const app = express()
-
-app.use(express.json())
-
-app.listen(3333, () => console.log('Server is running on port 3333'))
+serverHttp.listen(3333, () => console.log('Server is running on port 3333'))
