@@ -10,13 +10,13 @@ export const Home = () => {
     if (user.trim() === '') {
       return
     }
-
     navigate(`/chat/${user}`)
   }
 
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center gap-5 p-2">
       <strong className="text-white text-5xl">Chat-App</strong>
+
       <form
         onSubmit={handlerSubmitLogin}
         className="flex flex-col gap-3 w-full items-center"
@@ -28,9 +28,15 @@ export const Home = () => {
             onChange={(event) => setUser(event.target.value)}
             placeholder="Usuário"
             className="border border-green-500 bg-transparent rounded-full px-4 py-2 flex-1 w-full"
+            required
           />
         </div>
-        <button type="submit" className="bg-green-500 rounded-full p-3 w-1/2">
+
+        <button
+          type="submit"
+          className="bg-green-500 rounded-full p-3 w-1/2 disabled:opacity-50"
+          disabled={user.length === 0 || user.trim() === ''}
+        >
           Entrar
         </button>
       </form>
