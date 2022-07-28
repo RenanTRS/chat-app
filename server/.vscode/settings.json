@@ -1,9 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "[typescriptreact]": { //for react with typescript
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": { //only typescript
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
-}
