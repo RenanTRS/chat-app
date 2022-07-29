@@ -17,7 +17,7 @@ export const Messages = ({ messages, user }: MessagesProps) => {
   }, [messages])
 
   return (
-    <ul className="px-3 pt-16 pb-14 w-full h-full flex flex-col gap-4">
+    <ul className="px-3 pt-16 pb-14 w-full min-h-screen flex flex-col gap-4 justify-end">
       {messages.map((message, key) => {
         return <Message key={key} message={message} user={user} />
       })}
