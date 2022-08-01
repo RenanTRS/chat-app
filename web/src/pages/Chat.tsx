@@ -29,7 +29,7 @@ export const Chat = () => {
 
   return (
     <>
-      <Header user={'Another User'} />
+      <Header user={'Chat-App'} />
       <Messages messages={messages} user={user!} />
       <InputArea sendMessage={sendMessage} user={user!} />
     </>
