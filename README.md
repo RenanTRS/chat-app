@@ -15,7 +15,8 @@
 </p>
 
 <p align="center">
-    <img src="./design/mobile.gif" alt="Demo on mobile" width="40%"/>
+    <img src="./design/demo/desk.png" alt="Demo on desktop" width="75%"/>
+    <img src="./design/demo/mobile.png" alt="Demo on desktop" width="20%"/>
 </p>
 
 ## About this project
@@ -100,7 +101,7 @@ BASE_URL='your_http_front_end_here'
 | [![Socket.IO](https://img.shields.io/badge/SocketIO-gray?style=for-the-badge&logo=socket.io)](https://socket.io/)                                                       |                             [![EsLint](https://img.shields.io/badge/EsLint-gray?style=for-the-badge&logo=eslint)](https://eslint.org/) |
 | [![Jest](https://img.shields.io/badge/Jest-c21325?style=for-the-badge&logo=jest)](https://jestjs.io/)                                                                   |                      [![Prettier](https://img.shields.io/badge/Prettier-gray?style=for-the-badge&logo=prettier)](https://prettier.io/) |
 | [![Testing Library](https://img.shields.io/badge/Testing%20Library-gray?style=for-the-badge&logo=testinglibrary)](https://testing-library.com/)                         |            [![Dotenv](https://img.shields.io/badge/Dotenv-gray?style=for-the-badge&logo=dotenv)](https://www.npmjs.com/package/dotenv) |
-| [![SWC Jest](https://img.shields.io/badge/SWC%20Jest-gray?style=for-the-badge&logo=swc)](https://swc.rs/docs/usage/jest)                                                |                                                                                                                                        |
+| [![SWC Jest](https://img.shields.io/badge/SWC%20Jest-gray?style=for-the-badge&logo=swc)](https://swc.rs/docs/usage/jest)                                                |                              [![Yarn](https://img.shields.io/badge/Yarn-darkblue?style=for-the-badge&logo=yarn)](https://yarnpkg.com/) |
 | [![SWC Core](https://img.shields.io/badge/SWC%20Core-gray?style=for-the-badge&logo=swc)](https://swc.rs/docs/usage/core)                                                |                                                                                                                                        |
 | [![EsLint](https://img.shields.io/badge/EsLint-gray?style=for-the-badge&logo=eslint)](https://eslint.org/)                                                              |                                                                                                                                        |
 | [![Prettier](https://img.shields.io/badge/Prettier-gray?style=for-the-badge&logo=prettier)](https://prettier.io/)                                                       |                                                                                                                                        |
