@@ -9,15 +9,21 @@ interface Message {
 interface InputAreaProps {
   sendMessage: ({ user, message }: Message) => void
   user: string
+  typingMessage: (value: boolean, typeUser: string) => void
 }
 
-export const InputArea = ({ sendMessage, user }: InputAreaProps) => {
+export const InputArea = ({
+  sendMessage,
+  user,
+  typingMessage
+}: InputAreaProps) => {
   const [message, setMessage] = useState<string>('')
   const [isEmpty, setIsEmpty] = useState<boolean>(true)
 
   const handlerSubmit = (event: FormEvent) => {
     event.preventDefault()
     sendMessage({ user, message })
+    typingMessage(false, '')
 
     setMessage('') //clean textarea
     setIsEmpty(true) //disabled true
@@ -25,7 +31,15 @@ export const InputArea = ({ sendMessage, user }: InputAreaProps) => {
 
   const typingText = (value: string) => {
     value.trim() !== '' ? setIsEmpty(false) : setIsEmpty(true)
+    typingMessage(true, user)
     setMessage(value)
+  }
+  const handlerBlur = (value: string) => {
+    if (value.trim() === '') {
+      typingMessage(false, '')
+    } else {
+      typingMessage(true, user)
+    }
   }
 
   return (
@@ -36,6 +50,7 @@ export const InputArea = ({ sendMessage, user }: InputAreaProps) => {
       <textarea
         value={message}
         onChange={(event) => typingText(event.target.value)}
+        onBlur={(event) => handlerBlur(event.target.value)}
         placeholder="Mensagem"
         className="bg-transparent flex-1 text-xl px-2 pt-3 resize-none focus:outline-none focus:caret-green-700"
       />

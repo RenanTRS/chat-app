@@ -2,9 +2,16 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { InputArea } from '.'
 
 const sendMessageSpy = jest.fn()
+const typingMessageSpy = jest.fn()
 
 const MockInputArea = () => {
-  return <InputArea sendMessage={sendMessageSpy} user={'someone'} />
+  return (
+    <InputArea
+      sendMessage={sendMessageSpy}
+      user={'someone'}
+      typingMessage={typingMessageSpy}
+    />
+  )
 }
 
 describe('InputArea component', () => {

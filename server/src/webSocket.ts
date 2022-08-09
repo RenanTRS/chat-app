@@ -14,6 +14,11 @@ io.on('connection', (socket) => {
     socket.to(data.room).emit('receive_message', data)
   })
 
+  socket.on('typing_message', (data) => {
+    console.log(data)
+    socket.to(data.room).emit('type_message', data)
+  })
+
   socket.on('disconnect', () => {
     console.log('USER DISCONNECTED', socket.id)
   })
