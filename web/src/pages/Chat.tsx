@@ -15,10 +15,17 @@ connectToRoom() //socket connect
 export const Chat = () => {
   const { user } = useParams()
   const [messages, setMessages] = useState<messagesType[]>([])
+  const [isTypingMessage, setIsTypingMessage] = useState<boolean>(false)
+  const [typingUser, setTypingUser] = useState<string>('')
 
   const sendMessage = async ({ user, message }: messagesType) => {
     await socket.emit('send_message', { user, message, room }) //send for server
     setMessages([...messages, { user, message }])
+  }
+
+  const typingMessage = async (value: boolean, typeUser: string) => {
+    await socket.emit('typing_message', { typeUser, room })
+    setIsTypingMessage(value)
   }
 
   useEffect(() => {
@@ -27,11 +34,21 @@ export const Chat = () => {
     })
   }, [messages])
 
+  useEffect(() => {
+    socket.on('type_message', (data) => {
+      setTypingUser(data.typeUser)
+    })
+  }, [isTypingMessage])
+
   return (
     <>
-      <Header user={'Chat-App'} />
+      <Header typingUser={typingUser} />
       <Messages messages={messages} user={user!} />
-      <InputArea sendMessage={sendMessage} user={user!} />
+      <InputArea
+        sendMessage={sendMessage}
+        user={user!}
+        typingMessage={typingMessage}
+      />
     </>
   )
 }
