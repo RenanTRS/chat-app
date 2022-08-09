@@ -1,11 +1,20 @@
+import { useParams } from 'react-router-dom'
+
 interface HeaderProps {
-  user: string
+  typingUser: string
 }
 
-export const Header = ({ user }: HeaderProps) => {
+export const Header = ({ typingUser }: HeaderProps) => {
+  const { user } = useParams()
+
   return (
-    <header className="h-14 top-0 bg-zinc-800 border-b border-zinc-900 w-full flex items-center px-5 fixed">
-      <strong className="text-zinc-200 text-xl">{user}</strong>
+    <header className="top-0 bg-zinc-800 border-b border-zinc-900 w-full flex flex-col items-start px-5 py-2 fixed text-zinc-200">
+      <strong className="text-xl">Chat-App</strong>
+      <span className="italic text-xs">
+        {user !== typingUser && typingUser.trim() !== ''
+          ? `${typingUser} está digitando...`
+          : ''}
+      </span>
     </header>
   )
 }
